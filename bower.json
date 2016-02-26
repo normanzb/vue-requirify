@@ -1,7 +1,9 @@
 {
-  "name": "name-here",
+  "name": "vue-requirify",
   "version": "0.0.0",
   "devDependencies": {
-    "amdshim": "~0.0.14"
+    "amdshim": "~0.0.14",
+    "compact-promise": "~1.1.2",
+    "boe": "~1.2.4"
   }
 }

@@ -1,7 +1,7 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-    var SPACE_NAME = 'NameHere';
+    var SPACE_NAME = 'VueRequirify';
     var EXT_JS = '.js';
     var EXT_JS_MIN = '.min' + EXT_JS;
     var FILE_NAME_OUT_MAX = SPACE_NAME + EXT_JS;
