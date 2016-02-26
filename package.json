@@ -1,4 +1,12 @@
 {
-  "name": "name here",
-  "version": "0.0.0"
+  "name": "name-here",
+  "version": "0.0.0",
+  "devDependencies": {
+    "requirejs": "~2.1.11",
+    "grunt": "~0.4.1",
+    "grunt-bumpup": "~0.2.0",
+    "grunt-contrib-requirejs": ">= 0.3.0",
+    "grunt-contrib-uglify": ">= 0",
+    "grunt-tagrelease": "~0.2.0"
+  }
 }
