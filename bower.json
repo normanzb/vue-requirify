@@ -1,4 +1,7 @@
 {
   "name": "name-here",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "devDependencies": {
+    "amdshim": "~0.0.14"
+  }
 }
