@@ -1,12 +1,10 @@
 define([
     '../bower_components/compact-promise/Defer',
-    '../bower_components/boe/src/boe/String/trim',
-    'require'
+    '../bower_components/boe/src/boe/String/trim'
 ], 
 function (
     rsvp,
-    trim,
-    require
+    trim
 ) {
     'use strict';
 
@@ -25,11 +23,12 @@ function (
     }
 
     function getComponentModuleMap(list) {
+        var me = this;
         var map = {};
         var promises = [];
 
         for(var l = list.length; l--;) {
-            promises.push(getComponent(list[l]));
+            promises.push(getComponent.call(me, list[l]));
         }
 
         return rsvp.all(promises)
@@ -47,6 +46,7 @@ function (
     }
 
     function getComponent(path) {
+        var me = this;
         return new rsvp.Promise(function(resolve, reject){
             if (path == null || trim.call(path) === '') {
                 reject('path is not provided');
@@ -56,7 +56,7 @@ function (
             var names = path.split('/');
             var name = names[names.length - 1]; 
 
-            require(['components/' + path + '/' + name.charAt(0).toUpperCase() + name.substring(1)], function(ComponentCtor){
+            me.require(['components/' + path + '/' + name.charAt(0).toUpperCase() + name.substring(1)], function(ComponentCtor){
                 resolve(ComponentCtor);
             });
 
@@ -68,18 +68,24 @@ function (
 
     function Ctor(options){
         var me = this;
-        if (options == null || options.root == null || options.vue == null) {
+        if (
+            options == null || 
+            options.root == null || 
+            options.vue == null || 
+            options.require == null
+        ) {
             throw new Error('options are not provided');
         }
         me.root = options.root;
         me.vue = options.vue;
+        me.require = options.require;
     }
 
     Ctor.prototype.start = function() {
         var me = this;
         
         var list = getComponentListFromDomTree(me.root);
-        getComponentModuleMap(list)
+        getComponentModuleMap.call(me, list)
             .then(function(map){
                 me.RootView = me.vue.extend({
                     el: function(){
