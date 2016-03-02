@@ -452,7 +452,7 @@ function (
         return rsvp.all(promises)
             .then(function(componentCtors){
                 for(var l = list.length; l--;) {
-                    map[list[l]] = componentCtors[l];
+                    map[list[l]] = componentCtors[list.length - l - 1];
                 }
 
                 return rsvp.resolve(map);
