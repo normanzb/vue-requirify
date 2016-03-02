@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "devDependencies": {
     "amdshim": "~0.0.14",
-    "compact-promise": "~1.1.2",
+    "compact-promise": "~1.1.3",
     "boe": "~1.2.4"
   }
 }
