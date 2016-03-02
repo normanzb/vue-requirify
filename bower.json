@@ -1,6 +1,6 @@
 {
   "name": "vue-requirify",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "devDependencies": {
     "amdshim": "~0.0.14",
     "compact-promise": "~1.1.3",
